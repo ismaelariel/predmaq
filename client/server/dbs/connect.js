@@ -12,7 +12,7 @@ const client = new MongoClient(uri, {
 });
 
 module.exports = {
-    connectToServer: async function (callback) {
+    connectToServer: async(callback) => {
         try {
             await client.connect();
         } catch (e) {
@@ -32,7 +32,7 @@ module.exports = {
             return true;
         }
     },
-    getDb: function () {
+    getDb: () => {
         return _db;
     },
 };
