@@ -1,7 +1,8 @@
 const express = require("express");
 const http = require("http");
-const bodyParser = require('body-parser');
 const cors = require("cors");
+const bodyParser = require('body-parser');
+const dbo = require("./db/connect");
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -16,8 +17,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 app.use(cors());
 app.use(router);
-
-const dbo = require("./dbs/connect");
 
 server.listen(PORT, () => {
     dbo.connectToServer(function (error) {
