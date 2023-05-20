@@ -1,10 +1,10 @@
-const { MongoClient } = require("mongodb");
+const {MongoClient} = require("mongodb");
 
 const dotenv = require("dotenv");
 dotenv.config();
 
 const uri = process.env.ATLAS_URI;
-let _db;
+let _client;
 
 const client = new MongoClient(uri, {
     useNewUrlParser: true,
@@ -19,20 +19,20 @@ module.exports = {
             console.error(e);
         }
 
-        _db = client.db("appdata");
+        _client = client.db("appdata");
 
         try {
-            var count = await _db.collection("db_maintenance").countDocuments();
+            var count = await _client.collection("predmaq").countDocuments();
             console.log(count);
         } catch (e) {
             console.error(e);
         }
 
-        if (_db !== undefined) {
+        if (_client !== undefined) {
             return true;
         }
     },
-    getDb: () => {
-        return _db;
+    getClient: () => {
+        return _client;
     },
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
-import Machine from "./MachinePage/Machine";
+import Predict from "./components/Predict/Predict";
 
 import "./App.css";
 
@@ -9,7 +9,7 @@ const App = () => {
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Machine/>}/>
+                <Route path="/" element={<Predict/>}/>
             </Routes>
         </BrowserRouter>
     );
