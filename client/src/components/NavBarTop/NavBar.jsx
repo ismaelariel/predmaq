@@ -7,7 +7,7 @@ const NavBar = () => {
 
     useEffect(() => {
         const date = new Date();
-
+        
         const stateTimeout = setTimeout(() => {
             setDateBase(date.toLocaleString());
         }, 1000);
