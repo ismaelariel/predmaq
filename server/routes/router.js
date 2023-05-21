@@ -3,7 +3,8 @@ const router = express.Router();
 const connect = require("../db/connect");
 
 router.route("/").get((req, res) => {
-    let db = connect.getClient();
+    const db = connect.getClient();
+
     db.collection("predmaq").find({}).toArray().then((data) => {
         res.json(data);
     });

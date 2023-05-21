@@ -140,6 +140,8 @@ const Predict = () => {
             const model = data.filter((model) => model.Torque > 64);
     
             setMachine(model);
+        }).catch((error) => {
+            console.log(error);
         });
     }, [machine.length, predict.length]);
 
