@@ -1,24 +1,24 @@
 {
-    "name": "predmaq",
-    "short_name": "predmaq",
-    "start_url": ".",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "description": "Predições de maquinas industriais.",
-    "icons": [{
-      "src": "/predmaq-32x32.png",
-      "sizes": "32x32",
-      "type": "image/png"
-    }, {
-      "src": "/predmaq-150x150.png",
-      "sizes": "150x150",
-      "type": "image/png"
-    }, {
-      "src": "/predmaq-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    }],
-    "related_applications": [{
-      "platform": "web"
-    }]
-  }
+  "name": "predmaq",
+  "short_name": "predmaq",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "Predições de maquinas industriais.",
+  "icons": [{
+    "src": "/predmaq-32x32.png",
+    "sizes": "32x32",
+    "type": "image/png"
+  }, {
+    "src": "/predmaq-150x150.png",
+    "sizes": "150x150",
+    "type": "image/png"
+  }, {
+    "src": "/predmaq-192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }],
+  "related_applications": [{
+    "platform": "web"
+  }]
+}
