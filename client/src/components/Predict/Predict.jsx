@@ -5,7 +5,7 @@ import NavBar from "../NavBarTop/NavBar";
 import FixedPlot from "../Fixed/FixedPlot";
 import DinamicPlot from "../Dinamic/DinamicPlot";
 import TablePage from "../Table/TablePage";
-import CountMachine from "../Count/CountMachine";
+import Count from "../CountMachine/Count";
 
 import img from "../../images/predmaq.jpeg";
 import "./Predict.css";
@@ -180,7 +180,7 @@ const Predict = () => {
                         </div>
                     </div>
 
-                    <CountMachine
+                    <Count
                         predict={predict}
                         modelValue={modelValue}
                         isKeyPress={isKeyPress}
