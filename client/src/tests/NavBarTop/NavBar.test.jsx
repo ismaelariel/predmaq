@@ -1,11 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import {render} from "@testing-library/react";
 import NavBar from "../../components/NavBarTop/NavBar";
 
-it("render navbar view page", () => {
-    const div = document.createElement("div");
-    const navbar = ReactDOM.createRoot(div);
-    navbar.render(<NavBar />);
+test("render navbar view", async() => {
+    render(<NavBar/>);
 });
 
 const mockTimeOutAsync = (like) => {
@@ -17,7 +15,7 @@ const mockTimeOutAsync = (like) => {
 jest.useFakeTimers();
 jest.spyOn(global, 'setTimeout');
 
-test('test mock datetime callbacks', () => {
+test('test mock datetime callbacks', async() => {
     const timeCallback = (data) => {
         expect(data).toBeTruthy(); // Pode ser verdadeiro
     }
