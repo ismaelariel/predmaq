@@ -157,9 +157,8 @@ const Predict = () => {
                     <div className="div_action_container">
                         <div className="div_action_group_conatiner">
                             <input type="text" value={modelValue} placeholder="Procurar..."
-                            className="input_action_style action_style"
-                            onChange={handlerChange}
-                            onKeyDown={handlerPressKey}/>
+                            aria-label="cost-input" className="input_action_style action_style"
+                            onChange={handlerChange} onKeyDown={handlerPressKey}/>
                         </div>
                         <div className="div_action_group_conatiner">
                             <button className="btn_action_style action_style"
