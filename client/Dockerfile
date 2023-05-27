@@ -4,7 +4,7 @@ WORKDIR /app
 COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install --production
 COPY . .
-RUN npm run dist
+RUN npm run build
 
 FROM nginx:alpine
 EXPOSE 3000

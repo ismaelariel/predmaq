@@ -3,13 +3,14 @@ import React from "react";
 import BarChart from "../Charts/BarChart";
 import LineChart from "../Charts/LineChart";
 import RadarChart from "../Charts/RadarChart";
+import DoughnutChart from "../Charts/DoughnutChart";
 
 import "./PlotPage.css";
 
 const PlotPage = ({predict, action}) => {
     const viewManyPlot = () => {
-        if(action === "Rotação") {
-            return(
+        if (action === "Rotação") {
+            return (
                 <div className="div_plot_content">
                     <BarChart
                         machine={predict}
@@ -17,26 +18,26 @@ const PlotPage = ({predict, action}) => {
                     />
                 </div>
             );
-        } else if(action === "Desgaste") {
-            return(
+        } else if (action === "Desgaste") {
+            return (
                 <div className="div_plot_content">
                     <BarChart
                         machine={predict}
                         action={action}
                     />
                 </div>
-            );   
-        } else if(action === "Pesquisa por Modelo") {
-            return(
+            );
+        } else if (action === "Pesquisa por Modelo") {
+            return (
                 <div className="div_plot_content">
                     <BarChart
                         machine={predict}
                         action={action}
                     />
                 </div>
-            );   
+            );
         } else {
-            return(
+            return (
                 <div className="div_plot_content">
                     <RadarChart
                         machine={predict}
@@ -47,15 +48,17 @@ const PlotPage = ({predict, action}) => {
         }
     };
 
-    return(
+    return (
         <div className="div_plot_conatiner">
             {viewManyPlot()}
 
             <div className="div_plot_content">
-                <LineChart
+                {predict.length > 1 ? (<LineChart
                     machine={predict}
                     action={action}
-                />
+                />) : <DoughnutChart
+                    machine={predict}
+                />}
             </div>
         </div>
     );

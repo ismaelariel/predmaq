@@ -18,14 +18,12 @@ const LineChart = ({machine, action}) => {
     };
     
     return(
-        <>
-            <Line
-                data={data}
-                width={100}
-                height={100}
-                options={{ maintainAspectRatio: false }}
-            />
-        </>
+        <Line
+            data={data}
+            width={100}
+            height={100}
+            options={{ maintainAspectRatio: false }}
+        />
     );
 };
 

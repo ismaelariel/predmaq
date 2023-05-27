@@ -18,11 +18,11 @@ const NavBar = () => {
 
     return(
         <div className="div_navbar_container">
-            <div className="div_navbar_content">
+            <div className="div_navbar_content div_navbar_content_app_name">
                 <h4>PredMaq</h4>
             </div>
-            <div className="div_navbar_content">
-                <small>{dateBase}</small>
+            <div className="div_navbar_content div_navbar_content_datetime">
+                <span className="text_datatime_navbar">{dateBase}</span>
             </div>
         </div>
     );

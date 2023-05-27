@@ -11,8 +11,25 @@
     width: auto;
     height: 100%;
     margin: 0 8px;
-    display: flex;
     color: #ffffff;
     position: relative;
+}
+
+.div_navbar_content_app_name {
+    display: flex;
     align-items: center;
+    justify-content: start;
+}
+
+.div_navbar_content_datetime {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.text_datatime_navbar {
+    margin: 0;
+    padding: 0;
 }
