@@ -179,11 +179,11 @@ const Predict = () => {
                         </div>
                     </div>
 
-                    <Count
+                    {isPredict ? <Count
                         predict={predict}
                         modelValue={modelValue}
                         isKeyPress={isKeyPress}
-                    />
+                    /> : ""}
                 </div>
 
                 <div className="div_sidebar_right_content">
@@ -196,7 +196,6 @@ const Predict = () => {
                         (<DinamicPlot
                             machine={!isPredict ? machine : predict}
                             action="Pesquisa por Modelo"
-                            isDinamic={isDinamic}
                         />)
                     }
 

@@ -1,24 +1,23 @@
 import React from "react";
-
 import {Chart as ChartJS} from "chart.js/auto";
 import {ArcElement, Tooltip, Legend} from "chart.js";
-import {Radar} from "react-chartjs-2";
+import {Doughnut} from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const RadarChart = ({machine, action}) => {
+const DoughnutChart = ({machine}) => {
     const data = {
         labels: machine.map((data) => data.ProductID),
         datasets: [
             {
-                label: action,
-                data: machine.map((data) => data.ProcessTemperature)
+                label: "Pesquisa por Modelo",
+                data: [machine.map((data) => data.Torque), machine.map((data) => data.ToolWear)]
             }
         ]
     };
-    
-    return(
-        <Radar
+
+    return (
+        <Doughnut
             data={data}
             width={100}
             height={100}
@@ -27,4 +26,4 @@ const RadarChart = ({machine, action}) => {
     );
 };
 
-export default RadarChart;
+export default DoughnutChart;
