@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar Component View render navbar view 1`] = `
+<div
+  className="div_navbar_container"
+>
+  <div
+    className="div_navbar_content div_navbar_content_app_name"
+  >
+    <h4>
+      PredMaq
+    </h4>
+  </div>
+  <div
+    className="div_navbar_content div_navbar_content_datetime"
+  >
+    <span
+      className="text_datatime_navbar"
+    />
+  </div>
+</div>
+`;
