@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
+
 import PlotPage from "../PlotPage/PlotPage";
+import TablePage from "../Table/TablePage";
+
+import "./DinamicPlot.css";
 
 const Dinamic = ({ machine, action }) => {
     const [modelType, setModelType] = useState("M");
@@ -24,10 +28,16 @@ const Dinamic = ({ machine, action }) => {
     }, [predict.length]);
 
     return (
-        <PlotPage
-            predict={predict}
-            action={action}
-        />
+        <div className="div_dinamic_containe">
+            <PlotPage
+                predict={predict}
+                action={action}
+            />
+
+            <TablePage
+                machine={predict}
+            />
+        </div>
     )
 };
 
