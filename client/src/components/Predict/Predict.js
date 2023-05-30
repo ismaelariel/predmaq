@@ -4,10 +4,9 @@ import axios from "axios";
 import NavBar from "../NavBarTop/NavBar";
 import FixedPlot from "../Fixed/FixedPlot";
 import DinamicPlot from "../Dinamic/DinamicPlot";
-import TablePage from "../Table/TablePage";
 import Count from "../CountMachine/Count";
 
-import img from "../../images/predmaq.jpeg";
+import img from "../../images/predmaq.png";
 import "./Predict.css";
 
 export const pathAPI = "http://localhost:5001";
@@ -200,10 +199,6 @@ const Predict = () => {
                                 action="Pesquisa por Modelo"
                             />)
                     }
-
-                    <TablePage
-                        machine={!isPredict ? machine : predict}
-                    />
                 </div>
             </div>
         </div>

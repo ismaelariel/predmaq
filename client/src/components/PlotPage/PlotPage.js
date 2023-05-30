@@ -3,11 +3,11 @@ import React from "react";
 import BarChart from "../Charts/BarChart";
 import LineChart from "../Charts/LineChart";
 import RadarChart from "../Charts/RadarChart";
-import DoughnutChart from "../Charts/DoughnutChart";
+import TempChart from "../Charts/TempChart";
 
 import "./PlotPage.css";
 
-const PlotPage = ({predict, action}) => {
+const PlotPage = ({ predict, action }) => {
     const viewManyPlot = () => {
         if (action === "Rotação") {
             return (
@@ -56,7 +56,7 @@ const PlotPage = ({predict, action}) => {
                 {predict.length > 1 ? (<LineChart
                     machine={predict}
                     action={action}
-                />) : <DoughnutChart
+                />) : <TempChart
                     machine={predict}
                 />}
             </div>

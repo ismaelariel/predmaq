@@ -21,17 +21,18 @@ const BarChart = ({ machine, action }) => {
         datasets: [
             {
                 label: "Temperature",
-                data: machine.map((data) => data.ProcessTemperature)
+                data: machine.map((data) => data.ProcessTemperature),
+                backgroundColor: '#96c2f2'
             },
             {
                 label: "Desgaste",
-                data: machine.map((data) => action === "Desgaste" ||
-                    action === "Pesquisa por Modelo" ? data.ToolWear :
-                    data.RotationalSpeed)
+                data: machine.map((data) => action === "Desgaste" || action === "Pesquisa por Modelo" ? data.ToolWear : data.RotationalSpeed),
+                backgroundColor: '#f2a7c0'
             },
             {
                 label: "Torque",
-                data: machine.map((data) => data.Torque)
+                data: machine.map((data) => data.Torque),
+                backgroundColor: '#f1c2a4'
             }
         ]
     };
