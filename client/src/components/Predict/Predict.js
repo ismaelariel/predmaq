@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import NavBar from "../NavBarTop/NavBar";
+import NavBar from "../NavBar/NavBar";
 import FixedPlot from "../Fixed/FixedPlot";
 import DinamicPlot from "../Dinamic/DinamicPlot";
-import Count from "../CountMachine/Count";
 
 import img from "../../images/predmaq.png";
 import "./Predict.css";
@@ -14,28 +13,14 @@ export const pathAPI = "http://localhost:5001";
 const Predict = () => {
     const [machine, setMachine] = useState([]);
     const [predict, setPredict] = useState([]);
-    const [modelValue, setModelValue] = useState("");
+    const [isPredict, setIsPredic] = useState(false);
     const [isDinamic, setIsDinamic] = useState(false);
-    const [isPredict, setIsPredict] = useState(false);
-    const [isKeyPress, setIsKeyPress] = useState(false);
+    const [modelValue, setModelValue] = useState("");
+    const [descMachine, setDescMachine] = useState("");
     const [btnTitle, setBtnTitle] = useState("Pausada");
-    const [actionName, setActionName] = useState("Temperatura");
+    const [nameState, setNameState] = useState("Temperatura");
 
     const btnStyle = { backgroundColor: isDinamic ? "#008000" : "#ff0000" };
-
-    const handlerMachineState = () => {
-        if (predict.length > 0) {
-            setPredict([]);
-        }
-
-        const data = machine.filter((model) => model.Torque > 64);
-
-        if (data) {
-            setPredict(data);
-        } else {
-            setPredict([]);
-        }
-    };
 
     const handlerActionTemperature = () => {
         if (predict.length > 0) {
@@ -44,14 +29,16 @@ const Predict = () => {
 
         const data = machine.filter((model) => model.ProcessTemperature > 311.1);
 
-        if (data) {
+        if(data) {
             setPredict(data);
         } else {
             setPredict([]);
         }
 
-        setIsPredict(true);
-        setActionName("Temperatura");
+        setIsPredic(true);
+        setIsDinamic(false);
+        setNameState("Temperatura");
+        setDescMachine(`${data.length}`);
     };
 
     const handlerActionRotation = () => {
@@ -61,14 +48,16 @@ const Predict = () => {
 
         const data = machine.filter((model) => model.RotationalSpeed < 1229);
 
-        if (data) {
+        if(data) {
             setPredict(data);
         } else {
             setPredict([]);
         }
 
-        setIsPredict(true);
-        setActionName("Rotação");
+        setIsPredic(true);
+        setIsDinamic(false);
+        setNameState("Rotação");
+        setDescMachine(`${data.length}`);
     };
 
     const handlerActionToolWear = () => {
@@ -76,25 +65,30 @@ const Predict = () => {
             setPredict([]);
         }
 
-        let data = machine.filter((model) => model.ToolWear > 200);
+        const data = machine.filter((model) => model.ToolWear > 200);
 
-        if (data) {
+        if(data) {
             setPredict(data);
         } else {
             setPredict([]);
         }
 
-        setIsPredict(true);
-        setActionName("Desgaste");
+        setIsPredic(true);
+        setIsDinamic(false);
+        setNameState("Desgaste");
+        setDescMachine(`${data.length}`);
     };
 
     const handlerChange = (event) => {
         const value = event.target.value.toUpperCase();
 
         if (value.length < 1) {
-            setIsPredict(false);
-            setIsKeyPress(false);
-            setActionName("Temperatura");
+            handlerMachineState();
+
+            setIsPredic(true);
+            setIsDinamic(false);
+            setDescMachine("");
+            setNameState("Temperatura");
         }
 
         setModelValue(value);
@@ -108,18 +102,19 @@ const Predict = () => {
                 setPredict([]);
             }
 
-            let data = machine.filter((model) => model.Torque > 64 &&
+            const data = machine.filter((model) => model.Torque > 64 &&
                 (model.Type === modelValue || model.ProductID === modelValue));
 
-            if (data) {
-                setPredict(data);
-            } else {
-                setPredict([]);
-            }
+                if(data) {
+                    setPredict(data);
+                } else {
+                    setPredict([]);
+                }
 
-            setIsPredict(true);
-            setIsKeyPress(true);
-            setActionName("Pesquisa por Modelo");
+            setIsPredic(true);
+            setIsDinamic(false);
+            setNameState("Pesquisa por Modelo");
+            setDescMachine(`${modelValue} - ${data.length}`);
         }
     };
 
@@ -129,11 +124,26 @@ const Predict = () => {
             setIsDinamic(true);
         } else {
             setBtnTitle("Pausada");
+            setDescMachine("");
             setIsDinamic(false);
         }
-
+        
         handlerMachineState();
     }
+
+    const handlerMachineState = () => {
+        if (predict.length > 0) {
+            setPredict([]);
+        }
+
+        const data = machine.filter((model) => model.Torque > 64);
+
+        if(data) {
+            setPredict(data);
+        } else {
+            setPredict([]);
+        }
+    };
 
     useEffect(() => {
         axios.get(pathAPI).then((response) => {
@@ -144,7 +154,7 @@ const Predict = () => {
         }).catch((error) => {
             console.log(error);
         });
-    }, [machine.length, predict.length]);
+    }, [machine.length]);
 
     return (
         <div className="div_predict_container">
@@ -155,24 +165,29 @@ const Predict = () => {
                     <div className="div_img_container">
                         <img src={img} alt="logo predmaq" id="id_img_predmaq" />
                     </div>
+
                     <div className="div_action_container">
                         <div className="div_action_group_conatiner">
                             <input type="text" value={modelValue} placeholder="Procurar..."
                                 aria-label="cost-input" className="input_action_style action_style"
                                 onChange={handlerChange} onKeyDown={handlerPressKey} />
                         </div>
+
                         <div className="div_action_group_conatiner">
                             <button className="btn_action_style action_style"
                                 onClick={handlerActionTemperature}>Temperatura</button>
                         </div>
+
                         <div className="div_action_group_conatiner">
                             <button className="btn_action_style action_style"
                                 onClick={handlerActionRotation}>Rotação</button>
                         </div>
+
                         <div className="div_action_group_conatiner">
                             <button className="btn_action_style action_style"
                                 onClick={handlerActionToolWear}>Desgaste</button>
                         </div>
+
                         <div className="div_action_group_conatiner">
                             <button className="btn_action_dinamic_style action_style"
                                 style={btnStyle}
@@ -180,24 +195,23 @@ const Predict = () => {
                         </div>
                     </div>
 
-                    {isPredict ? <Count
-                        predict={predict}
-                        modelValue={modelValue}
-                        isKeyPress={isKeyPress}
-                    /> : ""}
+                    <div className="div_count_container">
+                        <h4 id="id_count_info">{descMachine}</h4>
+                    </div>
                 </div>
-
+                
                 <div className="div_sidebar_right_content">
                     {
                         !isDinamic ?
-                            (<FixedPlot
-                                machine={!isPredict ? machine : predict}
-                                action={actionName}
-                            />) :
-                            (<DinamicPlot
-                                machine={!isPredict ? machine : predict}
-                                action="Pesquisa por Modelo"
-                            />)
+                        <FixedPlot
+                            predict={!isPredict ? machine : predict}
+                            nameState={nameState}
+                        /> :
+                        <DinamicPlot
+                            machine={machine}
+                            descMachine={descMachine}
+                            setDescMachine={setDescMachine}
+                        />
                     }
                 </div>
             </div>

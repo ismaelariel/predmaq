@@ -71,3 +71,15 @@
     height: 100%;
     position: relative;
 }
+
+.div_count_container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+#id_count_info {
+    color: #0000ff;
+}
