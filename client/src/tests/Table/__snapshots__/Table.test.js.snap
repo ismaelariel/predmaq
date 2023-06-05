@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TablePage render table page component 1`] = `
+<div
+  className="div_grid_conatiner"
+>
+  <table
+    className="table table table-striped"
+  >
+    <thead>
+      <tr>
+        <th>
+          AirTemperature
+        </th>
+        <th>
+          FailureType
+        </th>
+        <th>
+          ProcessTemperature
+        </th>
+        <th>
+          ProductID
+        </th>
+        <th>
+          RotationalSpeed
+        </th>
+        <th>
+          Target
+        </th>
+        <th>
+          ToolWear
+        </th>
+        <th>
+          Torque
+        </th>
+        <th>
+          Type
+        </th>
+        <th>
+          UDI
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          298.1
+        </td>
+        <td>
+          No Failure
+        </td>
+        <td>
+          308.6
+        </td>
+        <td>
+          M14860
+        </td>
+        <td>
+          1551
+        </td>
+        <td>
+          0
+        </td>
+        <td>
+          0
+        </td>
+        <td>
+          42.8
+        </td>
+        <td>
+          M
+        </td>
+        <td>
+          1
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

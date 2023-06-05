@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5ba65b3c.css",
+    "main.js": "/static/js/main.ef76da1c.js",
+    "static/js/787.ba67faa9.chunk.js": "/static/js/787.ba67faa9.chunk.js",
+    "static/media/predmaq.png": "/static/media/predmaq.cb3244abc2f44f24a673.png",
+    "index.html": "/index.html",
+    "main.5ba65b3c.css.map": "/static/css/main.5ba65b3c.css.map",
+    "main.ef76da1c.js.map": "/static/js/main.ef76da1c.js.map",
+    "787.ba67faa9.chunk.js.map": "/static/js/787.ba67faa9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5ba65b3c.css",
+    "static/js/main.ef76da1c.js"
+  ]
+}

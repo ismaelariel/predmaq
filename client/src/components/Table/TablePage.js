@@ -1,11 +1,11 @@
 import React from "react";
 
-import {Table} from "react-bootstrap";
+import { Table } from "react-bootstrap";
 
 import "./TablePage.css";
 
-const TablePage = ({machine}) => {
-    return(
+const TablePage = ({ predict }) => {
+    return (
         <div className="div_grid_conatiner">
             <Table striped className="table">
                 <thead>
@@ -24,8 +24,8 @@ const TablePage = ({machine}) => {
                 </thead>
                 <tbody>
                     {
-                        machine.map((data) => {
-                            return(
+                        predict.map((data) => {
+                            return (
                                 <tr>
                                     <td>{data.AirTemperature}</td>
                                     <td>{data.FailureType}</td>

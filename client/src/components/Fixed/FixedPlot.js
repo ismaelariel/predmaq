@@ -5,18 +5,15 @@ import TablePage from "../Table/TablePage";
 
 import "./FixedPlot.css";
 
-const FixedPlot = ({ machine, action, isKeyPress }) => {
+const FixedPlot = ({ predict, nameState }) => {
     return (
         <div className="div_fixed_containe">
             <PlotPage
-                predict={machine}
-                action={action}
-                isKeyPress={isKeyPress}
+                predict={predict}
+                nameState={nameState}
             />
 
-            <TablePage
-                machine={machine}
-            />
+            <TablePage predict={predict} />
         </div>
     );
 };
