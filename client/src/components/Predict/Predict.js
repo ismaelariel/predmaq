@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import NavBar from "../NavBar/NavBar";
-import FixedPlot from "../Fixed/FixedPlot";
-import DinamicPlot from "../Dinamic/DinamicPlot";
+import Fixed from "../Fixed/Fixed";
+import Dinamic from "../Dinamic/Dinamic";
 
 import img from "../../images/predmaq.png";
 import "./Predict.css";
@@ -203,11 +203,11 @@ const Predict = () => {
                 <div className="div_sidebar_right_content">
                     {
                         !isDinamic ?
-                        <FixedPlot
+                        <Fixed
                             predict={!isPredict ? machine : predict}
                             nameState={nameState}
                         /> :
-                        <DinamicPlot
+                        <Dinamic
                             machine={machine}
                             descMachine={descMachine}
                             setDescMachine={setDescMachine}

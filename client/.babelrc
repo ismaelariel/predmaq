@@ -1,16 +1,19 @@
 {
     "presets": [
-        "@babel/preset-react",
+        "@babel/preset-env",
         [
-            "@babel/preset-env",
+            "@babel/preset-react",
             {
-                "useBuiltIns": "entry",
-                "modules": "commonjs",
-                "loose": true
+                "runtime": "automatic"
             }
         ]
     ],
     "plugins": [
-        "@babel/plugin-proposal-class-properties"
+        [
+            "@babel/plugin-transform-modules-commonjs",
+            {
+                "allowTopLevelThis": true
+            }
+        ]
     ]
 }
