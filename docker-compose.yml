@@ -2,14 +2,12 @@ version: '3.9'
 services:
   nginx:
     restart: always
-    image: myDevopContainer.azurecr.io/nginx-1
     build:
       context: ./nginx
       dockerfile: Dockerfile.dev
     ports:
       - "3008:80"
   client:
-    image: myDevopContainer.azurecr.io/client-1
     build:
       context: ./client
       dockerfile: Dockerfile.dev
@@ -21,7 +19,6 @@ services:
       - /app/node_modules
       - ./client:/app
   tests:
-    image: myDevopContainer.azurecr.io/tests-1
     build:
       context: ./client
       dockerfile: Dockerfile.dev
@@ -30,7 +27,6 @@ services:
       - ./client:/app
     command: ["npm", "run", "test"]
   api:
-    image: myDevopContainer.azurecr.io/api-1
     build:
       context: ./server
       dockerfile: Dockerfile.dev

@@ -1,8 +1,8 @@
 import React from "react";
 
-import BarChart from "../Charts/BarChart";
-import LineChart from "../Charts/LineChart";
-import TempChart from "../Charts/TempChart";
+import BarChart from "../BarChart/BarChart";
+import LineChart from "../LineChart/LineChart";
+import TempChart from "../TempChart/TempChart";
 
 import "./PlotPage.css";
 

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render linechart view 1`] = `
+<canvas
+  height={100}
+  role="img"
+  width={100}
+/>
+`;
